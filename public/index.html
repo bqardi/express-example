@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>API Documentation</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<dialog class="toast" data-toast>
+		<div class="toast__window">
+			<p data-toast-message>Message</p>
+			<form method="dialog">
+				<button>Close</button>
+			</form>
+		</div>
+	</dialog>
+	<h1 class="indent heading">API Documentation</h1>
+	<p class="indent">This is how you use this API :-)</p>
+	<h2 class="indent heading">Endpoints:</h2>
+	<a href="/api/hello" class="link description">
+		<span class="get">[GET]</span> all data (array):
+		<span class="endpoint">/api/hello</span><br />
+		<span class="comment">returns json data (array of objects)</span>
+	</a>
+	<a href="/api/hello/1" class="link description">
+		<span class="get">[GET]</span> single item (object):
+		<span class="endpoint">/api/hello/1</span><br />
+		<span class="comment">returns json data for a single item (single object).</span>
+	</a>
+	<a href="/api/hello/2" class="link description">
+		<span class="get">[GET]</span> single item (object):
+		<span class="endpoint">/api/hello/2</span><br />
+		<span class="comment">returns json data for a single item (single object).</span>
+	</a>
+	<a href="/api/users" class="link description">
+		<span class="get">[GET]</span> all items (objects) from database:
+		<span class="endpoint">/api/users</span><br />
+		<span class="comment">returns json data (array of objects).</span>
+	</a>
+	<a href="/api/users/2" class="link description">
+		<span class="get">[GET]</span> single item (object) from database:
+		<span class="endpoint">/api/users/2</span><br />
+		<span class="comment">returns json data for a single item (single object).</span>
+	</a>
+	<span class="link description" data-post>
+		<span class="post">[POST]</span> single item (object) to database:
+		<span class="endpoint">/api/users</span><br />
+		<span class="comment">Must be a post request with a body eg.: { email: "john@doe.com", name: "John Doe" }</span><br />
+		<span class="comment">returns json data for a single item (single object).</span>
+	</span>
+	<script src="app.js"></script>
+</body>
+</html>

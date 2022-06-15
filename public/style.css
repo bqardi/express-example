@@ -1,0 +1,72 @@
+body {
+	margin: 0 auto;
+	max-width: 500px;
+}
+
+.toast {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	width: 100%;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+}
+.toast__window {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgb(196, 255, 180);
+	padding: 10px 20px;
+}
+
+.indent {
+	padding-left: 20px;
+}
+
+.heading {
+	color: purple;
+}
+
+.description {
+	background-color: lightgray;
+	padding: 20px 20px 20px 16px;
+	margin-bottom: 4px;
+	border-left: 4px solid transparent;
+}
+.description:hover {
+	border-left-color: purple;
+}
+
+.link {
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+}
+.endpoint {
+	color: blueviolet;
+}
+.link:hover .endpoint {
+	text-decoration: underline;
+}
+
+.comment {
+	font-size: 0.8rem;
+	color: gray;
+	font-style: italic;
+}
+
+.get {
+	font-family: monospace;
+	color: green;
+	font-weight: 700;
+	font-size: 1rem;
+}
+.post {
+	font-family: monospace;
+	color: red;
+	font-weight: 700;
+	font-size: 1rem;
+}
