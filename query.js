@@ -6,16 +6,6 @@ const pool = new Pool({
 	ssl: process.env.NODE_ENV === "production"
 });
 
-queryById(1, (error, results) => {
-	if (error) throw error;
-	if (!results.rows.length) {
-		pool.query("CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(255), email VARCHAR(255));", (error, results) => {
-			if (error) throw error;
-			return; //Silent success
-		});
-	}
-});
-
 function find(req, res) {
 	pool.query(`SELECT * FROM users`, (error, results) => {
 		if (error) throw error;
