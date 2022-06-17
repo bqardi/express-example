@@ -2,8 +2,7 @@ const Pool = require('pg').Pool;
 require("dotenv").config();
 
 const pool = new Pool({
-	connectionString: process.env.DATABASE_URL,
-	ssl: process.env.NODE_ENV === "production"
+	connectionString: process.env.DATABASE_URL
 });
 
 function find(req, res) {
