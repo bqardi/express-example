@@ -1,6 +1,7 @@
 body {
 	margin: 0 auto;
 	max-width: 500px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .toast {
@@ -42,8 +43,12 @@ body {
 
 .link {
 	display: block;
+	color: rgb(100, 100, 100);
 	text-decoration: none;
 	cursor: pointer;
+}
+.link:hover {
+	color: black;
 }
 .endpoint {
 	color: blueviolet;

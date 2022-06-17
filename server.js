@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const { find, findOne, createUser } = require('./query');
+const { find, findOne, createUser, deleteUser, updateUser, patchUser } = require('./query');
 
 // Getting the API data from a json file
 const data = require("./data.json");
@@ -9,30 +9,26 @@ const data = require("./data.json");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
-// Return/display the default index.html file (the documentation)
-app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-// Return all json data
-app.get("/api/hello", (req, res) => {
-	res.send(data);
-});
-
-// Return a single item from the json data (example: /api/hello/1))
-app.get("/api/hello/:myid", (req, res) => {
-	const id = req.params.myid;
+// Queries from data.json file (read only)
+app.get("/api/json", (req, res) => res.send(data));
+app.get("/api/json/:id", (req, res) => {
+	const id = req.params.id;
 	const item = data.find(obj => obj.id === id);
 	res.send(item);
 });
 
-// Return all users from database
+// PostgreSQL operations
 app.get("/api/users", find);
-
-// Return user from database
 app.get("/api/users/:id", findOne);
-
-// Create user in database
 app.post("/api/users", createUser);
+app.delete("/api/users/:id", deleteUser);
+app.put("/api/users/:id", updateUser);
+app.patch("/api/users/:id", patchUser);
+
+// Download handling
+app.get("/downloads/:filename", (req, res) => {
+	const file = path.join(__dirname, "downloads", req.params.filename);
+	res.status(200).download(file);
+});
 
 app.listen(3000, () => console.log("Server is listening on port 3000"));
