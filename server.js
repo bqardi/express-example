@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const { find, findOne, createUser, deleteUser, updateUser, patchUser } = require('./query');
+require("dotenv").config();
+const PORT = process.env.PORT || 3000;
 
 // Getting the API data from a json file
 const data = require("./data.json");
@@ -31,4 +33,4 @@ app.get("/downloads/:filename", (req, res) => {
 	res.status(200).download(file);
 });
 
-app.listen(3000, () => console.log("Server is listening on port 3000"));
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
